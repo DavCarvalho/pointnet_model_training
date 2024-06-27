@@ -394,7 +394,10 @@ class ConfusionMatrix:
 
     def overall_accuracy(self):
         return 100 * self.CM.trace() / self.CM.sum()
-
+    #Para cada classe, a função calcula a IoU como
+    # IoU = Intersecção / União = VP / (VP + FN + FP)
+    #A interseção são os elementos na diagonal da matriz de confusão.
+    #A união é a soma dos elementos reais e previstos para a classe, menos a interseção.
     def class_IoU(self, show=1):
         ious = np.diag(self.CM) / (np.sum(self.CM, 1) + np.sum(self.CM, 0) - np.diag(self.CM))
         if show:
@@ -554,7 +557,7 @@ def train_full(args):
 
 # 9 definindo os parametros de treinamento
 
-#estrtura que vamos armazenar os parametros
+#estrutura que vamos armazenar os parametros
 args = mock.Mock()
 
 #argumentos para experiment on

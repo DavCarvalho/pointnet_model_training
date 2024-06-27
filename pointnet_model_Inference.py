@@ -90,5 +90,5 @@ for i in range(5):
 
 # XX 9. 3D Point Cloud Export with the predictions
 pcd_np = np.hstack((np.asarray(pcd.points), (labels).reshape(-1, 1)))
-np.savetxt("../RESULTS/" + inference_list[1].split("test\\")[1], pcd_np, fmt='%1.4f', delimiter=' ')
+np.savetxt("RESULTS/" + inference_list[1].split("test\\")[1], pcd_np, fmt='%1.4f', delimiter=' ')
 
